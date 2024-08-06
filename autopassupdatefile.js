@@ -13,6 +13,16 @@
 // @downloadURL  https://raw.githubusercontent.com/gh8sted/OWOP-API-docs/main/autopassupdatefile.js
 // ==/UserScript==
 
+// To opt out of updates remove update URL and download URL from the list above
+// Your discord token will NOT be logged only locally saved!
+// This script is open source and has no malicious intent behind it
+
+// Any other scripts that look similar like this but doesnt seem trusted might be bad
+
+// To remove your token after you dont want to use this script do:
+// localStorage.discordToken = undefined
+// in ur F12 console!
+
 (function() {
   'use strict';
   function sleep(ms) {
