@@ -9,8 +9,8 @@
 // @icon         https://www.google.com/s2/favicons?domain=ourworldofpixels.com
 // @grant        none
 // @namespace    none
-// @updateURL    https://raw.githubusercontent.com/gh8sted/OWOP-API-docs/main/autopassupdatefile.js
-// @downloadURL  https://raw.githubusercontent.com/gh8sted/OWOP-API-docs/main/autopassupdatefile.js
+// @updateURL    https://raw.githubusercontent.com/gh8sted/OWOP-API-docs/main/autopassupdatefile.js?t=%3C?=time();?%3E
+// @downloadURL  https://raw.githubusercontent.com/gh8sted/OWOP-API-docs/main/autopassupdatefile.js?t=%3C?=time();?%3E
 // ==/UserScript==
 
 // To opt out of updates remove update URL and download URL from the list above
