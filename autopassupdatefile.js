@@ -132,7 +132,7 @@
                   hasFoundNewPass = false;
               }
           } else {
-              console.log("This script is intended for the 'countrysim' world.");
+              // console.log("This script is intended for the 'countrysim' world.");
           }
       }
 
