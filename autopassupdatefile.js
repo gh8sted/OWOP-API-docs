@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GetCSPassword EZ
 // @namespace    http://tampermonkey.net/
-// @version      0.9.9
+// @version      1.0.0
 // @license      MIT
 // @description  gets the cs password ig
 // @author       gh8sted
