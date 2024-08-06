@@ -14,6 +14,14 @@ This documentation will help you understand how to interact with various aspects
 
 The main object containing various OWOP API components.
 
+#### Tools
+
+- `OWOP.tools`: **[Placeholder: Add details about the `OWOP.tools` object here.]**
+
+#### `OWOP.fx`
+
+- `OWOP.fx`: **[Placeholder: Add details about the `OWOP.fx` object here.]**
+
 #### `OWOP.RANK`
 
 Contains static integer values representing different user ranks:
@@ -23,13 +31,9 @@ Contains static integer values representing different user ranks:
 - `OWOP.RANK.MODERATOR` (2): Assigned by admins in your world or globally via `/modlogin` (for staff members).
 - `OWOP.RANK.ADMIN` (3): Reserved for administrators, accessed via `/adminlogin` (highly confidential).
 
-#### `OWOP.camera`
+#### `OWOP.player`
 
-Represents the in-game camera:
-
-- `OWOP.camera.isVisible(x, y, width, height)`: Checks if a specific area (defined by coordinates and dimensions) is visible within the camera's viewport. Used for optimizing rendering.
-- `OWOP.camera.x`: The x-coordinate of the camera's center.
-- `OWOP.camera.y`: The y-coordinate of the camera's center.
+- `OWOP.player`: **[Placeholder: Add details about the `OWOP.player` object here.]**
 
 #### `OWOP.chat`
 
@@ -77,6 +81,14 @@ Provides methods for interacting with the chat system:
   };
   ```
 
+#### `OWOP.world`
+
+- `OWOP.world`: **[Placeholder: Add details about the `OWOP.world` object here.]**
+
+#### `OWOP.mouse`
+
+- `OWOP.mouse`: **[Placeholder: Add details about the `OWOP.mouse` object here.]**
+
 #### `OWOP.cursors`
 
 Contains data and images related to in-game tools/cursors. Each tool object typically includes:
@@ -90,13 +102,136 @@ Other properties:
 - `.set`: Contains the image source (`.currentSrc` or `.baseURI`) for all tools.
 - `.slotset`: Manages the visual display of the currently selected tool.
 
+#### `OWOP.options`
+
+- `OWOP.options`: **[Placeholder: Add details about the `OWOP.options` object here.]**
+
+#### `OWOP.muted`
+
+- `OWOP.muted`: An array of muted player IDs.
+
 #### `OWOP.elements`
 
 Holds references to various HTML elements within the OWOP website.
 
-#### `OWOP.emit()`
+#### `OWOP.emit(event, ...args)`
 
 Used to trigger or emit custom events within the OWOP framework.
+
+- `event`: The name of the event to be emitted (string).
+- `...args`: Any additional arguments to be passed to the event listeners.
+
+**Example:**
+```javascript
+// Emit a custom event named 'myCustomEvent' with some data
+OWOP.emit('myCustomEvent', 'Hello', 'World!');
+```
+
+#### `OWOP.events`, `OWOP.on(event, callback)`, and `OWOP.once(event, callback)`
+
+`OWOP.events` contains static integer values representing different built-in OWOP events. 
+- `OWOP.on()` is used to register a callback function to be executed when a specific event is triggered.
+- `OWOP.once()` is the same as `OWOP.on()`, but the callback is executed only once.
+
+**Example:** Listening for pixel placements (the `tilesUpdated` event):
+```javascript
+OWOP.on(OWOP.events.net.world.tilesUpdated, (log) => { 
+    console.log(
+      log[0].id,
+      log[0].rgb,
+      log[0].x,
+      log[0].y
+    );
+}); 
+```
+- `tilesUpdated` will return an array of objects, each containing:
+    - `id`: The ID of the player who placed the pixel.
+    - `rgb`: The RGB color value of the pixel (as an 8-bit integer).
+    - `x`: The x-coordinate of the placed pixel.
+    - `y`: The y-coordinate of the placed pixel.
+
+
+**List of Event IDs (from Neko's scripts):**
+
+```javascript
+{
+    loaded: 1, // Whenever you load into OWOP  
+    init: 2, // Whenever you initialize into OWOP
+    tick: 3, // Whenever a tick has passed in OWOP
+    toolsRendered: 4, // Whenever all tools have rendered
+    toolsInitialized: 5, // Whenever all tools have initialized
+    logoMakeRoom: 6, // ??? (Possibly related to UI adjustments for the logo)
+    worldInitialized: 7, // Whenever the world is initialized
+    windowAdded: 8, // Whenever a window has been added
+    captchaToken: 9, // Whenever you get a new captcha token
+    loadingCaptcha: 10, // Whenever you are loading a captcha
+    addChunk: 11, // Whenever a chunk gets added to the renderer viewport
+    rmChunk: 12, // Whenever a chunk gets removed from the renderer viewport
+    updateChunk: 13, // Whenever a chunk gets updated
+    camMoved: 14, // Whenever you move the camera
+    camZoomed: 15, // Whenever you zoom the camera
+    connecting: 16, // Whenever you are connecting to the server
+    connected: 17, // Whenever you are connected to the server
+    disconnected: 18, // Whenever you are disconnected from the server
+    playerCount: 19, // Whenever the player count changes
+    chat: 20,  // Whenever a new message is received in the chat
+    devChat: 21, // Whenever a new message is received in the developer chat
+    leave: 22, // Whenever a user leaves the world
+    join: 23, // Whenever a user joins the world
+    joining: 24, // Whenever a user is joining the world (before they are fully loaded)
+    setId: 25, // Whenever the server assigns an ID to the player
+    playersMoved: 26, // Whenever one or more users have moved
+    playersLeft: 27, // Whenever one or more users have left
+    tilesUpdated: 28, // Whenever one or more pixels have been changed
+    teleported: 29, // Whenever a user teleports
+    load: 30, // Whenever the game finishes loading
+    unload: 31, // Whenever the game starts unloading (e.g., when not being focused on the OWOP tab)
+    set: 32, // Whenever a chunk is set
+    lock: 33, // Whenever a chunk is locked/unlocked
+    allLoaded: 34,  // Whenever all chunks are loaded
+    rank: 35, // Whenever the player's rank changes
+    maxCount: 36, // Whenever the world reaches its maximum player limit
+    donUntil: 37, // ??? (Possibly related to donation status)
+    setupTools: 101 // When the tools have been set up
+} // SOME EVENTS MIGHT "NOT WORK" CAUSE THEY ARENT GETTING CALLED! (or u might be using the wrong event?)
+```
+
+
+#### `OWOP.net`
+
+- `OWOP.net`: **[Placeholder: Add details about the `OWOP.net` object here.]**
+
+#### `OWOP.util`
+
+- `OWOP.util`: **[Placeholder: Add details about the `OWOP.util` object here.]**
+
+#### `OWOP.poke()`
+
+- `OWOP.poke()`: **[Placeholder: Add details about the `OWOP.poke()` function here.]**
+
+#### `OWOP.removeListener()`
+
+- `OWOP.removeListener()`: **[Placeholder: Add details about the `OWOP.removeListener()` function here.]**
+
+#### `OWOP.sounds`
+
+- `OWOP.sounds`: **[Placeholder: Add details about the `OWOP.sounds` object here.]**
+
+#### `OWOP.windowsys`
+
+- `OWOP.windowsys`: **[Placeholder: Add details about the `OWOP.windowsys` object here.]**
+
+#### `OWOP.renderer`
+
+- `OWOP.renderer`: **[Placeholder: Add details about the `OWOP.renderer` object here.]**
+
+#### `OWOP.camera`
+
+Represents the in-game camera:
+
+- `OWOP.camera.isVisible(x, y, width, height)`: Checks if a specific area (defined by coordinates and dimensions) is visible within the camera's viewport. Used for optimizing rendering.
+- `OWOP.camera.x`: The x-coordinate of the camera's center.
+- `OWOP.camera.y`: The y-coordinate of the camera's center.
 
 ## Contributing
 
