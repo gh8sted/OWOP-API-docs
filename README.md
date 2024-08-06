@@ -118,13 +118,15 @@ Holds references to various HTML elements within the OWOP website.
 
 Used to trigger or emit custom events within the OWOP framework.
 
-- `event`: The name of the event to be emitted (string).
+- `event`: The name of the event to be emitted (number).
 - `...args`: Any additional arguments to be passed to the event listeners.
 
 **Example:**
 ```javascript
-// Emit a custom event named 'myCustomEvent' with some data
-OWOP.emit('myCustomEvent', 'Hello', 'World!');
+// Emit an OWOP event or any other existing events
+OWOP.emit(35, 1); // 35 -> rank event (look in events list below) sets self rank to 1
+// or
+OWOP.emit(OWOP.events.net.sec.rank, 0) // 35 but from the OWOP events (more reliable and readable), sets self rank to 0
 ```
 
 #### `OWOP.events`, `OWOP.on(event, callback)`, and `OWOP.once(event, callback)`
