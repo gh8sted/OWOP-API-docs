@@ -15,6 +15,7 @@ This documentation will help you understand how to interact with various aspects
 The main object containing various OWOP API components.
 
 #### Tools
+**Note:** OWOP.tools and OWOP.tool is basically the same thing
 
 - `OWOP.tools`: **[Placeholder: Add details about the `OWOP.tools` object here.]**
 
@@ -209,11 +210,14 @@ OWOP.on(OWOP.events.net.world.tilesUpdated, (log) => {
 
 #### `OWOP.poke()`
 
-- `OWOP.poke()`: **[Placeholder: Add details about the `OWOP.poke()` function here.]**
+- `OWOP.poke()`: Sets your OWOP.net.protocol.lastSentX to infinity if OWOP.net.protocol exists (yeah its like this in the code)
 
 #### `OWOP.removeListener()`
 
-- `OWOP.removeListener()`: **[Placeholder: Add details about the `OWOP.removeListener()` function here.]**
+- `OWOP.removeListener()`: Removes a running eventlistener that you set (Useless sometimes i guess?)
+  ```javascript
+  OWOP.removeListener(event, function);
+  ```
 
 #### `OWOP.sounds`
 
